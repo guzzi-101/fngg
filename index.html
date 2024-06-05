@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>French Noun Gender Quiz</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .blue-button {
+            background-color: blue;
+            color: white;
+        }
+
+        .red-button {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>French Noun Gender Quiz</h1>
         <div id="quiz">
             <p id="question">What is the gender of the noun "chien"?</p>
-            <button onclick="checkAnswer('le')">Le</button>
-            <button onclick="checkAnswer('la')">La</button>
+            <button class="blue-button" onclick="checkAnswer('le')">Le / Un</button>
+            <button class="red-button" onclick="checkAnswer('la')">La / Une</button>
         </div>
         <p id="result"></p>
         <p>Score: <span id="score">0</span></p> <!-- Score Counter -->
