@@ -1,5 +1,12 @@
 // quiz.js
 
+function speakWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'fr-FR'; // French pronunciation
+    window.speechSynthesis.speak(utterance);
+}
+
+
 // Shuffle function
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -17,9 +24,15 @@ let correctResponses = 0; // Initialize the number of correct responses
 let totalResponses = 0;   // Initialize the total number of responses
 
 function loadQuestion() {
-    document.getElementById('question').innerText = `What is the gender of the noun "${nouns[currentNoun].word}"?`;
+    const word = nouns[currentNoun].word;
+    document.getElementById('question').innerText = `What is the gender of the noun "${word}"?`;
     document.getElementById('result').innerText = '';
     document.getElementById('result').style.color = ''; // Reset text color
+
+    // Speak the word
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'fr-FR'; // Use French voice
+    window.speechSynthesis.speak(utterance);
 }
 
 function checkAnswer(answer) {
